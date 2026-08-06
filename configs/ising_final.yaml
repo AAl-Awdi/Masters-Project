@@ -1,0 +1,62 @@
+experiment:
+  name: ising_day22_temperature_sweep
+  description: >-
+    Reproducible L=20 baseline temperature sweep for mean energy per spin,
+    signed magnetisation and mean absolute magnetisation. The primary curve
+    deliberately uses one seed per temperature; multiple-seed uncertainty and
+    fluctuation observables are the 23 July extension.
+
+model:
+  lattice_size: 20
+  coupling: 1.0
+  field: 0.0
+  boltzmann_constant: 1.0
+
+simulation:
+  temperatures:
+    - 1.50
+    - 1.70
+    - 1.90
+    - 2.05
+    - 2.10
+    - 2.15
+    - 2.20
+    - 2.23
+    - 2.25
+    - 2.269185314213022
+    - 2.29
+    - 2.32
+    - 2.35
+    - 2.40
+    - 2.50
+    - 2.70
+    - 3.00
+    - 3.50
+  burn_in_sweeps: 1000
+  production_sweeps: 2000
+  sample_every: 1
+  initial_state: up
+  n_replicates: 1
+  base_seed: 22000
+  record_burn_in: true
+
+# These reproduce the selected all-up versus random-start checks from the
+# completed 22 July notebook. They are saved separately from the primary sweep.
+diagnostics:
+  initial_condition_checks:
+    - temperature: 1.50
+      initial_state: random
+      seed: 22901
+    - temperature: 2.269185314213022
+      initial_state: random
+      seed: 22902
+    - temperature: 3.50
+      initial_state: random
+      seed: 22903
+  result_npz: results/raw/ising_day22_initial_condition_diagnostics.npz
+  summary_csv: results/processed/ising_day22_initial_condition_diagnostics.csv
+
+outputs:
+  result_npz: results/raw/ising_day22_temperature_sweep.npz
+  summary_csv: results/processed/ising_day22_temperature_sweep_summary.csv
+  metadata_json: results/raw/ising_day22_temperature_sweep_metadata.json

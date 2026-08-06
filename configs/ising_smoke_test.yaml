@@ -1,0 +1,29 @@
+experiment:
+  name: ising_smoke_test
+  description: >-
+    Fast end-to-end validation of the classical Ising temperature-sweep
+    pipeline. These settings are for software testing, not dissertation results.
+
+model:
+  lattice_size: 8
+  coupling: 1.0
+  field: 0.0
+  boltzmann_constant: 1.0
+
+simulation:
+  temperatures:
+    - 1.5
+    - 2.269185314213022
+    - 3.5
+  burn_in_sweeps: 50
+  production_sweeps: 100
+  sample_every: 1
+  initial_state: up
+  n_replicates: 1
+  base_seed: 21900
+  record_burn_in: true
+
+outputs:
+  result_npz: results/raw/ising_smoke_test.npz
+  summary_csv: results/processed/ising_smoke_test_summary.csv
+  metadata_json: results/raw/ising_smoke_test_metadata.json

@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0",
+  "created_utc": "2026-08-06T18:49:24.333910+00:00",
+  "experiment_name": "ising_day22_temperature_sweep",
+  "description": "Reproducible L=20 baseline temperature sweep for mean energy per spin, signed magnetisation and mean absolute magnetisation. The primary curve deliberately uses one seed per temperature; multiple-seed uncertainty and fluctuation observables are the 23 July extension.",
+  "configuration_file": "C:\\Dev\\Masters Project\\configs\\ising_final.yaml",
+  "configuration_sha256": "efbd493633c08b28430571510fad612cee6a2753cbfbebaf63b1ad47e9d7ba84",
+  "configuration": {
+    "experiment": {
+      "name": "ising_day22_temperature_sweep",
+      "description": "Reproducible L=20 baseline temperature sweep for mean energy per spin, signed magnetisation and mean absolute magnetisation. The primary curve deliberately uses one seed per temperature; multiple-seed uncertainty and fluctuation observables are the 23 July extension."
+    },
+    "model": {
+      "lattice_size": 20,
+      "coupling": 1.0,
+      "field": 0.0,
+      "boltzmann_constant": 1.0
+    },
+    "simulation": {
+      "temperatures": [
+        1.5,
+        1.7,
+        1.9,
+        2.05,
+        2.1,
+        2.15,
+        2.2,
+        2.23,
+        2.25,
+        2.269185314213022,
+        2.29,
+        2.32,
+        2.35,
+        2.4,
+        2.5,
+        2.7,
+        3.0,
+        3.5
+      ],
+      "burn_in_sweeps": 1000,
+      "production_sweeps": 2000,
+      "sample_every": 1,
+      "initial_state": "up",
+      "n_replicates": 1,
+      "base_seed": 22000,
+      "record_burn_in": true
+    },
+    "diagnostics": {
+      "initial_condition_checks": [
+        {
+          "temperature": 1.5,
+          "initial_state": "random",
+          "seed": 22901
+        },
+        {
+          "temperature": 2.269185314213022,
+          "initial_state": "random",
+          "seed": 22902
+        },
+        {
+          "temperature": 3.5,
+          "initial_state": "random",
+          "seed": 22903
+        }
+      ],
+      "result_npz": "results/raw/ising_day22_initial_condition_diagnostics.npz",
+      "summary_csv": "results/processed/ising_day22_initial_condition_diagnostics.csv"
+    },
+    "outputs": {
+      "result_npz": "results/raw/ising_day22_temperature_sweep.npz",
+      "summary_csv": "results/processed/ising_day22_temperature_sweep_summary.csv",
+      "metadata_json": "results/raw/ising_day22_temperature_sweep_metadata.json"
+    }
+  },
+  "result_file": "C:\\Dev\\Masters Project\\results\\raw\\ising_day22_temperature_sweep.npz",
+  "result_sha256": "08c1b07998b814df2a9c46650cc307447c6641928de644ce41f73923f056b609",
+  "summary_file": "C:\\Dev\\Masters Project\\results\\processed\\ising_day22_temperature_sweep_summary.csv",
+  "physical_conventions": {
+    "hamiltonian": "E = -J sum_<ij> s_i s_j - B sum_i s_i",
+    "boundary_conditions": "periodic",
+    "sweep_definition": "Exactly L^2 random single-spin attempts with replacement.",
+    "magnetisation": "m = sum_i(s_i) / L^2",
+    "energy_per_spin": "e = E / L^2"
+  },
+  "runtime": {
+    "elapsed_seconds": 52.714892599964514,
+    "python": "3.11.14 (main, Feb 12 2026, 00:37:49) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "numpy": "2.4.3"
+  },
+  "limitations": [
+    "The supplied day-22 final configuration uses one primary seed per temperature.",
+    "Successive samples may be autocorrelated.",
+    "The exact critical temperature is an infinite-lattice benchmark, not a fitted L=20 boundary."
+  ],
+  "diagnostic_files": {
+    "result": "C:\\Dev\\Masters Project\\results\\raw\\ising_day22_initial_condition_diagnostics.npz",
+    "summary": "C:\\Dev\\Masters Project\\results\\processed\\ising_day22_initial_condition_diagnostics.csv"
+  },
+  "analysis_notebook": "notebooks/classical/03_ising_temperature_sweep_thermodynamics.ipynb"
+}

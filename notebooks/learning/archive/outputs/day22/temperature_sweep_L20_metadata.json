@@ -1,0 +1,89 @@
+{
+  "notebook": "22_Temperature_Sweep_Energy_and_Magnetisation.ipynb",
+  "purpose": "Provisional single-seed temperature sweep for energy and magnetisation.",
+  "physical_conventions": {
+    "lattice": "L x L periodic square lattice",
+    "J": 1.0,
+    "B": 0.0,
+    "k_B": 1.0,
+    "sweep_definition": "Exactly L^2 random single-spin attempts with replacement."
+  },
+  "protocol": {
+    "L": 20,
+    "n_spins": 400,
+    "temperatures": [
+      1.5,
+      1.7,
+      1.9,
+      2.05,
+      2.1,
+      2.15,
+      2.2,
+      2.23,
+      2.25,
+      2.269185314213022,
+      2.29,
+      2.32,
+      2.35,
+      2.4,
+      2.5,
+      2.7,
+      3.0,
+      3.5
+    ],
+    "n_replicates": 1,
+    "seeds": [
+      [
+        22000,
+        22001,
+        22002,
+        22003,
+        22004,
+        22005,
+        22006,
+        22007,
+        22008,
+        22009,
+        22010,
+        22011,
+        22012,
+        22013,
+        22014,
+        22015,
+        22016,
+        22017
+      ]
+    ],
+    "initial_state": "up",
+    "burn_in_sweeps": 1000,
+    "production_sweeps": 2000,
+    "storage_interval": 1,
+    "elapsed_seconds": 63.58263469999656
+  },
+  "benchmark": {
+    "description": "Exact zero-field infinite square-lattice value",
+    "T_c": 2.269185314213022,
+    "role": "Reference line, not a fitted finite-size transition"
+  },
+  "limitations": [
+    "One primary seed per temperature.",
+    "No final confidence intervals.",
+    "Successive production values may be autocorrelated.",
+    "Susceptibility and specific heat are deferred to 23 July."
+  ],
+  "files": {
+    "npz": "temperature_sweep_L20_full.npz",
+    "csv": "temperature_sweep_L20_summary.csv",
+    "figures": {
+      "energy": "energy_per_spin_vs_temperature_L20.png",
+      "absolute_magnetisation": "absolute_magnetisation_vs_temperature_L20.png",
+      "signed_magnetisation_diagnostic": "signed_magnetisation_vs_temperature_L20_diagnostic.png",
+      "combined": "energy_and_absolute_magnetisation_vs_temperature_L20.png"
+    },
+    "diagnostic_figures": [
+      "diagnostics\\initial_condition_comparison_T1p500.png",
+      "diagnostics\\initial_condition_comparison_T2p269.png",
+      "diagnostics\\initial_condition_comparison_T3p500.png"
+    ]
+  }
+}
