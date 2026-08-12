@@ -416,6 +416,15 @@ def save_temperature_sweep(
             ),
             "magnetisation": "m = sum_i(s_i) / L^2",
             "energy_per_spin": "e = E / L^2",
+            "specific_heat_per_spin": (
+                "c_V = (<E^2> - <E>^2) / (N k_B T^2), using total E"
+            ),
+            "signed_susceptibility_per_spin": (
+                "chi_signed = N (<m^2> - <m>^2) / (k_B T)"
+            ),
+            "absolute_centred_susceptibility_per_spin": (
+                "chi_abs = N (<m^2> - <|m|>^2) / (k_B T)"
+            ),
         },
         "runtime": {
             "elapsed_seconds": float(sweep["elapsed_seconds"]),
@@ -423,10 +432,16 @@ def save_temperature_sweep(
             "platform": platform.platform(),
             "numpy": np.__version__,
         },
+        "seed_matrix": np.asarray(sweep["seeds"], dtype=np.int64).tolist(),
+        "array_shapes": {
+            name: list(np.asarray(value).shape)
+            for name, value in _serialisable_sweep_payload(sweep).items()
+        },
         "limitations": [
-            "The supplied day-22 final configuration uses one primary seed per temperature.",
-            "Successive samples may be autocorrelated.",
-            "The exact critical temperature is an infinite-lattice benchmark, not a fitted L=20 boundary.",
+            f"Across-seed summaries use {int(sweep['n_replicates'])} independently seeded chain(s) per temperature.",
+            "Uncertainty is provisional when the replicate count is small.",
+            "Successive samples within each chain may be autocorrelated.",
+            "The exact critical temperature is an infinite-lattice benchmark, not a fitted finite-L boundary.",
         ],
     }
     if additional_metadata:
