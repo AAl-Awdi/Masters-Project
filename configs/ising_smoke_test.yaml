@@ -1,4 +1,4 @@
-experiment:
+sexperiment:
   name: ising_smoke_test
   description: >-
     Fast end-to-end validation of the classical Ising temperature-sweep
