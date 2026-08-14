@@ -101,7 +101,7 @@ def susceptibility(
     boltzmann_constant: float = 1.0,
     centre: Literal["signed", "absolute"] = "signed",
 ) -> float:
-    r"""Estimate the magnetic susceptibility per spin from sampled m values."""
+    """Estimate susceptibility per spin from sampled m values."""
     samples = np.asarray(magnetisation_samples, dtype=float)
 
     if samples.ndim != 1 or samples.size < 2:
@@ -131,7 +131,7 @@ def specific_heat(
     n_spins: int,
     boltzmann_constant: float = 1.0,
 ) -> float:
-    r"""Estimate the constant-volume specific heat per spin from total energies."""
+    """Estimate specific heat per spin from total-energy samples."""
     samples = np.asarray(energy_samples, dtype=float)
 
     if samples.ndim != 1 or samples.size < 2:
