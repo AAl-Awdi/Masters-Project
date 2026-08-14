@@ -1,0 +1,191 @@
+{
+  "schema_version": "1.0",
+  "created_utc": "2026-08-14T12:40:28.969975+00:00",
+  "experiment_name": "ising_day23_smoke_test",
+  "description": "Fast end-to-end validation of the Day 23 multi-replicate classical Ising pipeline. These settings test software, seed handling and saved shapes. They are not the final results.",
+  "configuration_file": "C:\\Dev\\Masters Project\\configs\\ising_day23_smoke_test.yaml",
+  "configuration_sha256": "52ebb2e8d73e8fe69e695297c45b3216e345ebf37adaeb849e5dfde64ed937fc",
+  "configuration": {
+    "experiment": {
+      "name": "ising_day23_smoke_test",
+      "description": "Fast end-to-end validation of the Day 23 multi-replicate classical Ising pipeline. These settings test software, seed handling and saved shapes. They are not the final results."
+    },
+    "model": {
+      "lattice_size": 8,
+      "coupling": 1.0,
+      "field": 0.0,
+      "boltzmann_constant": 1.0
+    },
+    "simulation": {
+      "temperatures": [
+        1.5,
+        2.269185314213022,
+        3.5
+      ],
+      "burn_in_sweeps": 50,
+      "production_sweeps": 100,
+      "sample_every": 1,
+      "initial_state": "up",
+      "n_replicates": 2,
+      "base_seed": 23200,
+      "record_burn_in": true
+    },
+    "outputs": {
+      "result_npz": "results/raw/ising_day23_smoke_test.npz",
+      "summary_csv": "results/processed/ising_day23_multiseed_chain_summary.csv",
+      "metadata_json": "results/raw/ising_day23_smoke_test_metadata.json"
+    }
+  },
+  "result_file": "C:\\Dev\\Masters Project\\results\\raw\\ising_day23_smoke_test.npz",
+  "result_sha256": "0d80cfbed32eb63a639a272e42b7c671b7d3854a85bfb60935a57a4cc01d94e2",
+  "summary_file": "C:\\Dev\\Masters Project\\results\\processed\\ising_day23_multiseed_chain_summary.csv",
+  "physical_conventions": {
+    "hamiltonian": "E = -J sum_<ij> s_i s_j - B sum_i s_i",
+    "boundary_conditions": "periodic",
+    "sweep_definition": "Exactly L^2 random single-spin attempts with replacement.",
+    "magnetisation": "m = sum_i(s_i) / L^2",
+    "energy_per_spin": "e = E / L^2",
+    "specific_heat_per_spin": "c_V = (<E^2> - <E>^2) / (N k_B T^2), using total E",
+    "signed_susceptibility_per_spin": "chi_signed = N (<m^2> - <m>^2) / (k_B T)",
+    "absolute_centred_susceptibility_per_spin": "chi_abs = N (<m^2> - <|m|>^2) / (k_B T)"
+  },
+  "runtime": {
+    "elapsed_seconds": 0.2002290000091307,
+    "python": "3.13.5 (tags/v3.13.5:6cb20a2, Jun 11 2025, 16:15:46) [MSC v.1943 64 bit (AMD64)]",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "numpy": "2.4.6"
+  },
+  "seed_matrix": [
+    [
+      23200,
+      23201,
+      23202
+    ],
+    [
+      23203,
+      23204,
+      23205
+    ]
+  ],
+  "array_shapes": {
+    "n_replicates": [],
+    "n_temperatures": [],
+    "lattice_size": [],
+    "n_spins": [],
+    "coupling": [],
+    "field": [],
+    "boltzmann_constant": [],
+    "burn_in_sweeps": [],
+    "production_sweeps": [],
+    "sample_every": [],
+    "record_burn_in": [],
+    "elapsed_seconds": [],
+    "temperatures": [
+      3
+    ],
+    "seeds": [
+      2,
+      3
+    ],
+    "initial_lattice": [
+      2,
+      3,
+      8,
+      8
+    ],
+    "final_lattice": [
+      2,
+      3,
+      8,
+      8
+    ],
+    "burn_energy": [
+      2,
+      3,
+      51
+    ],
+    "burn_magnetisation": [
+      2,
+      3,
+      51
+    ],
+    "burn_acceptance": [
+      2,
+      3,
+      50
+    ],
+    "production_sweep_numbers": [
+      2,
+      3,
+      100
+    ],
+    "production_energy": [
+      2,
+      3,
+      100
+    ],
+    "production_energy_squared": [
+      2,
+      3,
+      100
+    ],
+    "production_magnetisation": [
+      2,
+      3,
+      100
+    ],
+    "production_magnetisation_squared": [
+      2,
+      3,
+      100
+    ],
+    "production_absolute_magnetisation": [
+      2,
+      3,
+      100
+    ],
+    "production_acceptance": [
+      2,
+      3,
+      100
+    ],
+    "mean_total_energy": [
+      2,
+      3
+    ],
+    "mean_energy_squared": [
+      2,
+      3
+    ],
+    "mean_energy_per_spin": [
+      2,
+      3
+    ],
+    "mean_signed_magnetisation": [
+      2,
+      3
+    ],
+    "mean_magnetisation_squared": [
+      2,
+      3
+    ],
+    "mean_absolute_magnetisation": [
+      2,
+      3
+    ],
+    "mean_acceptance_fraction": [
+      2,
+      3
+    ],
+    "initial_state": [],
+    "exact_infinite_lattice_critical_temperature": [],
+    "schema_version": []
+  },
+  "limitations": [
+    "Across-seed summaries use 2 independently seeded chain(s) per temperature.",
+    "Uncertainty is provisional when the replicate count is small.",
+    "Successive samples within each chain may be autocorrelated.",
+    "The exact critical temperature is an infinite-lattice benchmark, not a fitted finite-L boundary."
+  ],
+  "workflow": "Executed from the Day 23 clean development notebook."
+}

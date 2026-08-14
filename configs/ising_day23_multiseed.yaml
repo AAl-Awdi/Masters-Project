@@ -1,0 +1,61 @@
+experiment:
+  name: ising_day23_multiseed
+  description: >-
+    Five-replicate L=20 classical Ising temperature sweep developed, tested
+    and executed in the Day 23 notebook.
+
+model:
+  lattice_size: 20
+  coupling: 1.0
+  field: 0.0
+  boltzmann_constant: 1.0
+
+simulation:
+  temperatures:
+    - 1.50
+    - 1.70
+    - 1.90
+    - 2.05
+    - 2.10
+    - 2.15
+    - 2.20
+    - 2.23
+    - 2.25
+    - 2.269185314213022
+    - 2.29
+    - 2.32
+    - 2.35
+    - 2.40
+    - 2.50
+    - 2.70
+    - 3.00
+    - 3.50
+  burn_in_sweeps: 1000
+  production_sweeps: 2000
+  sample_every: 1
+  initial_state: up
+  n_replicates: 5
+  base_seed: 23000
+  record_burn_in: true
+
+diagnostics:
+  initial_condition_checks:
+    - temperature: 1.50
+      initial_state: random
+      seed: 23100
+    - temperature: 2.269185314213022
+      initial_state: random
+      seed: 23101
+    - temperature: 3.50
+      initial_state: random
+      seed: 23102
+  result_npz: results/raw/ising_day23_initial_condition_diagnostics.npz
+  summary_csv: results/processed/ising_day23_initial_condition_diagnostics.csv
+
+outputs:
+  result_npz: results/raw/ising_day23_multiseed.npz
+  summary_csv: results/processed/ising_day23_multiseed_chain_summary.csv
+  metadata_json: results/raw/ising_day23_multiseed_metadata.json
+
+analysis:
+  notebook: notebooks/classical/Multiple seeds susceptibility and specific heat.ipynb

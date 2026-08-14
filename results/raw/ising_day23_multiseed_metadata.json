@@ -1,0 +1,324 @@
+{
+  "schema_version": "1.0",
+  "created_utc": "2026-08-14T12:52:58.831493+00:00",
+  "experiment_name": "ising_day23_multiseed",
+  "description": "Five-replicate L=20 classical Ising temperature sweep developed, tested and executed in the Day 23 notebook.",
+  "configuration_file": "C:\\Dev\\Masters Project\\configs\\ising_day23_multiseed.yaml",
+  "configuration_sha256": "c3d41ea4cb0f0a38cc594a9f816c2991a7206318aac7d7722689dc47ed288743",
+  "configuration": {
+    "experiment": {
+      "name": "ising_day23_multiseed",
+      "description": "Five-replicate L=20 classical Ising temperature sweep developed, tested and executed in the Day 23 notebook."
+    },
+    "model": {
+      "lattice_size": 20,
+      "coupling": 1.0,
+      "field": 0.0,
+      "boltzmann_constant": 1.0
+    },
+    "simulation": {
+      "temperatures": [
+        1.5,
+        1.7,
+        1.9,
+        2.05,
+        2.1,
+        2.15,
+        2.2,
+        2.23,
+        2.25,
+        2.269185314213022,
+        2.29,
+        2.32,
+        2.35,
+        2.4,
+        2.5,
+        2.7,
+        3.0,
+        3.5
+      ],
+      "burn_in_sweeps": 1000,
+      "production_sweeps": 2000,
+      "sample_every": 1,
+      "initial_state": "up",
+      "n_replicates": 5,
+      "base_seed": 23000,
+      "record_burn_in": true
+    },
+    "diagnostics": {
+      "initial_condition_checks": [
+        {
+          "temperature": 1.5,
+          "initial_state": "random",
+          "seed": 23100
+        },
+        {
+          "temperature": 2.269185314213022,
+          "initial_state": "random",
+          "seed": 23101
+        },
+        {
+          "temperature": 3.5,
+          "initial_state": "random",
+          "seed": 23102
+        }
+      ],
+      "result_npz": "results/raw/ising_day23_initial_condition_diagnostics.npz",
+      "summary_csv": "results/processed/ising_day23_initial_condition_diagnostics.csv"
+    },
+    "outputs": {
+      "result_npz": "results/raw/ising_day23_multiseed.npz",
+      "summary_csv": "results/processed/ising_day23_multiseed_chain_summary.csv",
+      "metadata_json": "results/raw/ising_day23_multiseed_metadata.json"
+    },
+    "analysis": {
+      "notebook": "notebooks/classical/Multiple seeds susceptibility and specific heat.ipynb"
+    }
+  },
+  "result_file": "C:\\Dev\\Masters Project\\results\\raw\\ising_day23_multiseed.npz",
+  "result_sha256": "503b16795f0db3327fcdf66ffcd43f71493f0a995e75c011f78fbd139986072b",
+  "summary_file": "C:\\Dev\\Masters Project\\results\\processed\\ising_day23_multiseed_chain_summary.csv",
+  "physical_conventions": {
+    "hamiltonian": "E = -J sum_<ij> s_i s_j - B sum_i s_i",
+    "boundary_conditions": "periodic",
+    "sweep_definition": "Exactly L^2 random single-spin attempts with replacement.",
+    "magnetisation": "m = sum_i(s_i) / L^2",
+    "energy_per_spin": "e = E / L^2",
+    "specific_heat_per_spin": "c_V = (<E^2> - <E>^2) / (N k_B T^2), using total E",
+    "signed_susceptibility_per_spin": "chi_signed = N (<m^2> - <m>^2) / (k_B T)",
+    "absolute_centred_susceptibility_per_spin": "chi_abs = N (<m^2> - <|m|>^2) / (k_B T)"
+  },
+  "runtime": {
+    "elapsed_seconds": 261.58197340002516,
+    "python": "3.11.14 (main, Feb 12 2026, 00:37:49) [MSC v.1944 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "numpy": "2.4.3"
+  },
+  "seed_matrix": [
+    [
+      23000,
+      23001,
+      23002,
+      23003,
+      23004,
+      23005,
+      23006,
+      23007,
+      23008,
+      23009,
+      23010,
+      23011,
+      23012,
+      23013,
+      23014,
+      23015,
+      23016,
+      23017
+    ],
+    [
+      23018,
+      23019,
+      23020,
+      23021,
+      23022,
+      23023,
+      23024,
+      23025,
+      23026,
+      23027,
+      23028,
+      23029,
+      23030,
+      23031,
+      23032,
+      23033,
+      23034,
+      23035
+    ],
+    [
+      23036,
+      23037,
+      23038,
+      23039,
+      23040,
+      23041,
+      23042,
+      23043,
+      23044,
+      23045,
+      23046,
+      23047,
+      23048,
+      23049,
+      23050,
+      23051,
+      23052,
+      23053
+    ],
+    [
+      23054,
+      23055,
+      23056,
+      23057,
+      23058,
+      23059,
+      23060,
+      23061,
+      23062,
+      23063,
+      23064,
+      23065,
+      23066,
+      23067,
+      23068,
+      23069,
+      23070,
+      23071
+    ],
+    [
+      23072,
+      23073,
+      23074,
+      23075,
+      23076,
+      23077,
+      23078,
+      23079,
+      23080,
+      23081,
+      23082,
+      23083,
+      23084,
+      23085,
+      23086,
+      23087,
+      23088,
+      23089
+    ]
+  ],
+  "array_shapes": {
+    "n_replicates": [],
+    "n_temperatures": [],
+    "lattice_size": [],
+    "n_spins": [],
+    "coupling": [],
+    "field": [],
+    "boltzmann_constant": [],
+    "burn_in_sweeps": [],
+    "production_sweeps": [],
+    "sample_every": [],
+    "record_burn_in": [],
+    "elapsed_seconds": [],
+    "temperatures": [
+      18
+    ],
+    "seeds": [
+      5,
+      18
+    ],
+    "initial_lattice": [
+      5,
+      18,
+      20,
+      20
+    ],
+    "final_lattice": [
+      5,
+      18,
+      20,
+      20
+    ],
+    "burn_energy": [
+      5,
+      18,
+      1001
+    ],
+    "burn_magnetisation": [
+      5,
+      18,
+      1001
+    ],
+    "burn_acceptance": [
+      5,
+      18,
+      1000
+    ],
+    "production_sweep_numbers": [
+      5,
+      18,
+      2000
+    ],
+    "production_energy": [
+      5,
+      18,
+      2000
+    ],
+    "production_energy_squared": [
+      5,
+      18,
+      2000
+    ],
+    "production_magnetisation": [
+      5,
+      18,
+      2000
+    ],
+    "production_magnetisation_squared": [
+      5,
+      18,
+      2000
+    ],
+    "production_absolute_magnetisation": [
+      5,
+      18,
+      2000
+    ],
+    "production_acceptance": [
+      5,
+      18,
+      2000
+    ],
+    "mean_total_energy": [
+      5,
+      18
+    ],
+    "mean_energy_squared": [
+      5,
+      18
+    ],
+    "mean_energy_per_spin": [
+      5,
+      18
+    ],
+    "mean_signed_magnetisation": [
+      5,
+      18
+    ],
+    "mean_magnetisation_squared": [
+      5,
+      18
+    ],
+    "mean_absolute_magnetisation": [
+      5,
+      18
+    ],
+    "mean_acceptance_fraction": [
+      5,
+      18
+    ],
+    "initial_state": [],
+    "exact_infinite_lattice_critical_temperature": [],
+    "schema_version": []
+  },
+  "limitations": [
+    "Across-seed summaries use 5 independently seeded chain(s) per temperature.",
+    "Uncertainty is provisional when the replicate count is small.",
+    "Successive samples within each chain may be autocorrelated.",
+    "The exact critical temperature is an infinite-lattice benchmark, not a fitted finite-L boundary."
+  ],
+  "diagnostic_files": {
+    "result": "C:\\Dev\\Masters Project\\results\\raw\\ising_day23_initial_condition_diagnostics.npz",
+    "summary": "C:\\Dev\\Masters Project\\results\\processed\\ising_day23_initial_condition_diagnostics.csv"
+  },
+  "analysis_notebook": "notebooks/classical/Multiple seeds susceptibility and specific heat.ipynb"
+}

@@ -1,0 +1,30 @@
+experiment:
+  name: ising_day23_smoke_test
+  description: >-
+    Fast end-to-end validation of the Day 23 multi-replicate classical Ising
+    pipeline. These settings test software, seed handling and saved shapes.
+    They are not the final results.
+
+model:
+  lattice_size: 8
+  coupling: 1.0
+  field: 0.0
+  boltzmann_constant: 1.0
+
+simulation:
+  temperatures:
+    - 1.50
+    - 2.269185314213022
+    - 3.50
+  burn_in_sweeps: 50
+  production_sweeps: 100
+  sample_every: 1
+  initial_state: up
+  n_replicates: 2
+  base_seed: 23200
+  record_burn_in: true
+
+outputs:
+  result_npz: results/raw/ising_day23_smoke_test.npz
+  summary_csv: results/processed/ising_day23_multiseed_chain_summary.csv
+  metadata_json: results/raw/ising_day23_smoke_test_metadata.json
