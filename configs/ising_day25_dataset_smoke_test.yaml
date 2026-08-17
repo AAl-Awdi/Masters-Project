@@ -1,0 +1,32 @@
+schema_version: '1.0'
+experiment:
+  name: ising_day25_dataset_smoke_test
+  description: Deterministic 24-configuration smoke dataset for the Day 25 notebook.
+model:
+  lattice_size: 8
+  coupling: 1.0
+  field: 0.0
+  boltzmann_constant: 1.0
+dataset:
+  temperatures:
+  - 1.5
+  - 2.269185314213022
+  - 3.5
+  burn_in_sweeps: 50
+  production_sweeps: 80
+  configuration_interval: 20
+  configurations_per_chain: 4
+  n_replicates: 2
+  base_seed: 25200
+  initial_state_schedule:
+  - up
+  - down
+  split_schedule:
+  - train
+  - test
+outputs:
+  dataset_npz: data/raw/classical/ising_ml_dataset_v1_smoke.npz
+  manifest_csv: data/processed/classical/ising_ml_dataset_v1_smoke_manifest.csv
+  summary_csv: data/processed/classical/ising_ml_dataset_v1_smoke_summary.csv
+  chain_diagnostics_csv: data/processed/classical/ising_ml_dataset_v1_smoke_chain_diagnostics.csv
+  figure_dir: figures/exploratory/classical/day25/smoke

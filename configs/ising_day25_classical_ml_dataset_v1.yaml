@@ -1,0 +1,55 @@
+schema_version: '1.0'
+experiment:
+  name: ising_day25_classical_ml_dataset_v1
+  description: Balanced L=20 raw spin-configuration dataset for later ML analysis.
+model:
+  lattice_size: 20
+  coupling: 1.0
+  field: 0.0
+  boltzmann_constant: 1.0
+dataset:
+  temperatures:
+  - 1.5
+  - 1.7
+  - 1.9
+  - 2.05
+  - 2.1
+  - 2.15
+  - 2.2
+  - 2.23
+  - 2.25
+  - 2.269185314213022
+  - 2.29
+  - 2.32
+  - 2.35
+  - 2.4
+  - 2.5
+  - 2.7
+  - 3.0
+  - 3.5
+  burn_in_sweeps: 1000
+  production_sweeps: 2000
+  configuration_interval: 40
+  configurations_per_chain: 50
+  n_replicates: 6
+  base_seed: 25000
+  initial_state_schedule:
+  - up
+  - down
+  - up
+  - down
+  - up
+  - down
+  split_schedule:
+  - train
+  - train
+  - validation
+  - validation
+  - test
+  - test
+outputs:
+  dataset_npz: data/raw/classical/ising_ml_dataset_v1.npz
+  manifest_csv: data/processed/classical/ising_ml_dataset_v1_manifest.csv
+  summary_csv: data/processed/classical/ising_ml_dataset_v1_summary.csv
+  chain_diagnostics_csv: data/processed/classical/ising_ml_dataset_v1_chain_diagnostics.csv
+  figure_dir: figures/exploratory/classical/day25/main
